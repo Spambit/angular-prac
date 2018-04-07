@@ -1,0 +1,20 @@
+.normal {
+  font-weight: normal;
+}
+
+.thick {
+  font-weight: bold;
+}
+
+.thicker {
+  font-weight: 900;
+}
+
+.decorated {
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+
+.italic {
+  font-style: italic;
+}

@@ -1,0 +1,7 @@
+<!--component html goes here -->
+<img src='{{fakeImgHostUrl}}{{size}}'><br>
+<span [innerHtml]='desc'></span><br><br>
+<button [disabled]='isBtnDisable' [innerHtml]='btnTitle'></button><br><br>
+<span class="thicker italic decorated">Apply multiple classes</span><br><br>
+<span [class]='allclasses' [class.thick] = 'shouldApplyThickClass' [class.thicker] = 'shouldApplyThickClass'>Apply all classes</span><br><br>
+<span [ngClass]='addClasses()'>Use of ngClass</span><br><br>

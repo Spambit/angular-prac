@@ -1,0 +1,5 @@
+<span>
+    <input value = 'All' [(ngModel)] = 'selectedGender' data-action='All' type="radio" name="gender" (change)='triggerGenderChangeEvent($event)'> {{'All ('+allEmployeeCount+')'}}
+    <input value = 'Male' [(ngModel)] = 'selectedGender' data-action='Male' type="radio" name="gender" (change)='triggerGenderChangeEvent($event)'> {{'Male ('+maleEmployeeCount+')'}}
+    <input value = 'Female' [(ngModel)] = 'selectedGender' data-action='Female' type="radio" name="gender" (change)='triggerGenderChangeEvent($event)'> {{'Female ('+femaleEmployeeCount+')'}}
+</span>

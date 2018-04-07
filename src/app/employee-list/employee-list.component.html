@@ -1,0 +1,37 @@
+<input [(ngModel)]='name'>
+<span [innerHtml] = 'name'></span>
+<br><br>
+<employee-filter
+    (genderSelectionDidChange) = 'onGenderSelectionChange($event)'
+    [allEmployeeCount] = 'getAllEmployeeCount()'
+    [maleEmployeeCount] = 'getMaleEmployeeCount()'
+    [femaleEmployeeCount] = 'getFemaleEmployeeCount()'
+    [selectedGender] = 'filter.gender'>
+  </employee-filter>
+<br><br>
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Salary</th>
+    <th>Birth day</th>
+    <th>Gender</th>
+  </tr>
+  <tr *ngIf = 'httpClientErrorDesc && httpClientErrorDesc.length > 0'>
+    <td colspan='4'>{{httpClientErrorDesc}}</td>
+  </tr>
+  <tr *ngIf = '!httpClientErrorDesc && (!employees || employees.length == 0)'>
+      <td colspan='4'>No Employees</td>
+    </tr>
+  <ng-container *ngFor = 'let employee of employees; trackBy : trackByEmpCode'>
+  <tr *ngIf = "filter.gender == 'All' || employee.gender == filter.gender">
+    <td><a [routerLink]="['/employees',employee.code]">{{employee.code | uppercase}}</a></td>
+    <td>{{employee.name | employeePipe:employee.gender}}</td>
+    <td>{{employee.salary}}</td>
+    <td>{{employee.birth_day | date:'fullDate'}}</td>
+    <td>{{employee.gender}}</td>
+  </tr>
+  </ng-container>
+</table>
+<br><br>
+<button class="btn-danger" (click)='onRefreshEmployees()'>Refersh employees</button>
